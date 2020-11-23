@@ -5,7 +5,7 @@
 headwon=0
 tailwon=0
 
-while [[ $headwon -lt 21 && $tailwon -lt 21 ]]
+while [[ $headwon -le 21 && $tailwon -le 21 ]]
 do
 	flip=$(($RANDOM%2))
 	if [ $flip -eq 0 ]
@@ -16,11 +16,14 @@ do
 	fi
 done
 
-if [ $headwon -eq 21 ]
+if [ $headwon -eq 21 && $tailwon -ne 21 ]
 then
-	echo "Head won 21 games"
+	echo "Head won the match."
 	echo "Tail won $tailwon games"
-else
-	echo "Tail won 21 games"
+elif [ $headwon -ne 21 && $tailwon -eq 21 ]
+then
+	echo "Tail won the match."
 	echo "Head won $headwon games"
+else
+	echo "Game was a tie."
 fi
