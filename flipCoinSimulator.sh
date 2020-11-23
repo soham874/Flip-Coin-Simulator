@@ -1,10 +1,14 @@
 #!/bin/bash
 
-flip=$(($RANDOM%2))
+read -p "Enter number of times : " number
 
-if [ $flip -eq 0 ]
-then 
-	echo "We got a tail"
-else
-	echo "We got a head"
-fi
+for ((i=1;i<=$number;i++))
+do
+	flip=$(($RANDOM%2))
+	if [ $flip -eq 0 ]
+	then 
+		echo "We got a tail"
+	else
+		echo "We got a head"
+	fi
+done
