@@ -5,6 +5,26 @@
 headwon=0
 tailwon=0
 
+function tie(){
+	diff=0
+	while [ $diff -lt 2 && $diff -gt -2 ]
+	do
+		flip=$(($RANDOM%2))
+		if [ $flip -eq 0 ]
+		then
+			((diff++))
+		else
+			((diff--))
+		fi
+	done
+	if [ $diff -eq -2 ]
+	then
+		echo "Head won the game"
+	else
+		echo "Tail won the game"
+	fi
+}
+
 while [[ $headwon -lt 21 && $tailwon -lt 21 ]]
 do
 	flip=$(($RANDOM%2))
@@ -26,4 +46,5 @@ then
 	echo "Head won $headwon games"
 else
 	echo "Game was a tie."
+	tie
 fi
