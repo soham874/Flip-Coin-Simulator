@@ -5,7 +5,7 @@
 headwon=0
 tailwon=0
 
-while [[ $headwon -le 21 && $tailwon -le 21 ]]
+while [[ $headwon -lt 21 && $tailwon -lt 21 ]]
 do
 	flip=$(($RANDOM%2))
 	if [ $flip -eq 0 ]
